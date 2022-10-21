@@ -5,25 +5,25 @@ female(queen_elizabeth).
 male(prince_charles).
 female(princess_ann).
 male(prince_andrew).
-male(prince_edwards).
+male(prince_edward).
 
 older(prince_charles, princess_ann).
 older(princess_ann, prince_andrew).
-older(prince_andrew, prince_edwards).
+older(prince_andrew, prince_edward).
 
 offspring(prince_charles, queen_elizabeth).
 offspring(princess_ann, queen_elizabeth).
 offspring(prince_andrew, queen_elizabeth).
-offspring(prince_edwards, queen_elizabeth).
+offspring(prince_edward, queen_elizabeth).
 
 
 /* Rules */
 older_than(X, Y):- 
-	older(X, Y)
+	older(X, Y).
 
 /* This recursive rule adds transitivity to the older than relationship */
 older_than(X, Y):-
-	older(X, A), older_than(A, Y)
+	older(X, A), older_than(A, Y).
 
 
 /* Now, let us define the succession rules that will be used in our sorting function later */
@@ -62,6 +62,6 @@ insert_object(X, List, [X|List]).
 
 
 /* Using findall to query a list of all the offsprings. Then can perform the insertion_sort and return the sorted output! */
-sort_succession_list(X, Result):- 
+line_of_succession(X, Result):- 
 	findall(A, offspring(A, X), Offsprings),
 	insertion_sort(Offsprings, Result).
