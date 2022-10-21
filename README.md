@@ -1,2 +1,7 @@
-# CZ3005-Assignment-2
-Code for Assignment 2 in my Artificial Intelligence course.
+# CZ3005
+
+### Assignment 2 - Introduction to Prolog
+
+Contains (1+2) prolog files for the 2 Exercises. 
+
+Run with SWI-Prolog.
